@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Moments | Artisan Bakery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header-section" id="home">
+        <nav class="navbar">
+            <div class="logo">Bakery</div>
+           <ul class="nav-links">
+  <li><a href="#home" class="active">Home</a></li>
+  <li><a href="#products">Products</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Freshly Baked<br>Dreams.</h1>
+                <p>The starting point of sweetness always starts with a bite. Whatever life brings, fall in love with
+                    our felted edges and creamy layers.</p>
+                <a href="#" class="btn-hero">READ MORE</a>
+            </div>
+            <div class="hero-image">
+                <!-- Using the new cake image -->
+                <img src="hero-cake.png" alt="Tiered Pink Cake" style="border-radius: 10px;">
+            </div>
+        </div>
+
+        <!-- Torn paper effect at bottom of header -->
+        <div class="paper-edge-bottom"></div>
+    </header>
+
+    <main class="main-content">
+        <!-- Info Badges -->
+        <div class="info-badges">
+            <div class="badge">
+                <div class="icon-circle brown"><i class="fas fa-birthday-cake"></i></div>
+                <div class="badge-text">
+                    <h3>Fresh Oven</h3>
+                    <p>Specials hot and new days select</p>
+                </div>
+            </div>
+            <div class="badge">
+                <div class="icon-circle light"><i class="fas fa-cookie-bite"></i></div>
+                <div class="badge-text">
+                    <h3>Sweet Treats</h3>
+                    <p>Decorations on texture oranges for strong sweet taste</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Cards -->
+         <section id="products" class="product-section ">
+
+             <div class="product-cards">
+                 <!-- Card 1: Pink -->
+                 <div class="card pink-card">
+                     <h2>Cakes</h2>
+                     <div class="card-img-container">
+                         <img src="card-1.png" alt="Slice of cake">
+                        </div>
+                        <div class="card-footer">
+                            <span>LAYERED</span>
+                            <span class="cursive">Velvet</span>
+                            <span>MORE</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Beige -->
+                    <div class="card beige-card">
+                        <h2>Cookies</h2>
+                        <div class="card-img-container">
+                            <img src="card-2.png" alt="Chocolate Square">
+                        </div>
+                        <div class="card-footer">
+                            <span>DARK</span>
+                            <span class="cursive">Fudge</span>
+                            <span>ASK</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Purple -->
+                    <div class="card purple-card">
+                        <h2>Pastry</h2>
+                        <div class="card-img-container">
+                            <img src="card-3.png" alt="Pastry">
+                        </div>
+                        <div class="card-footer">
+                            <span>FRUIT</span>
+                            <span class="cursive">Berry</span>
+                            <span>ADD</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Arrows -->
+        <div class="slider-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-arrow right">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+
+        <!-- Bottom Section: Custom Orders (About) -->
+        <section id="about" class="coffee-section">
+            <div class="coffee-layout">
+                <div class="coffee-img">
+                    <!-- Reusing card 1 as visual since new generation failed -->
+                    <img src="card-1.png" alt="Cake Slice">
+                </div>
+                <div class="coffee-text">
+                    <h2>Custom Orders</h2>
+                    <p>Create your perfect celebration with love and care. We craft sweet memories for weddings,
+                        birthdays, and special occasions.</p>
+                    <p>Choose your flavors, pick your design, and let us bake your dream cake. Taste the difference of
+                        artisan quality.</p>
+                    <a href="#" class="btn-pill">Order Now <i class="fas fa-play"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">Bakery</div>
+                <p>Sweet Moments start with a bite. Baking happiness for you every day.</p>
+                <div class="social-icons">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Cakes</a></li>
+                    <li><a href="#pastries">Pastries</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, Bakery Town</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-envelope"></i> hello@sweetmoments.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sweet Moments Bakery.</p>
+            <p class="signature">Designed by Naina and Aliza and Doger</p>
+        </div>
+    </footer>
+</body>
+
+</html>
