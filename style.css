@@ -1,0 +1,485 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+:root {
+    --bg-hero: #A68B86;
+    /* Muted Mauve/Brown */
+    --bg-body: #FFFDF5;
+    /* Cream */
+    --card-pink: #F5D0D0;
+    --card-beige: #EDDBC0;
+    --card-purple: #C8B6C8;
+    --text-hero: #FDF8F5;
+    --text-dark: #4A3B32;
+    --btn-brown: #5C4033;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Header & Navbar */
+.header-section {
+    background-color: var(--bg-hero);
+    padding: 2rem 4rem 8rem 4rem;
+    /* Extra bottom padding for overlap/torn effect */
+    position: relative;
+    color: var(--text-hero);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 80%;
+    margin-bottom: 2.5rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #594239;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 50%;
+    /* Only if it's not transparent, but assuming png is cut */
+    /* If the image has a background, we might need to remove border-radius or adjust */
+    /* For the specific reference look, the cup sits on a saucer. */
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Torn Paper Effect */
+.paper-edge-bottom {
+    position: absolute;
+    bottom: -5px;
+    /* slight overlap to hide gaps */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--bg-body);
+    /* Create a jagged edge using clip-path or repeating radial gradient */
+    /* A fast CSS only way to do torn paper is a mask */
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 10 Q 5 0 10 10 T 20 10 T 30 10 T 40 10 T 50 10 T 60 10 T 70 10 T 80 10 T 90 10 T 100 10 L 100 20 Z' fill='black'/%3E%3C/svg%3E");
+    mask-size: 50px 100%;
+    mask-repeat: repeat-x;
+    /* Since masking is tricky without external SVGs sometimes, let's use a simpler clip-path polygon for "torn" look */
+    clip-path: polygon(0% 50%, 5% 70%, 10% 40%, 15% 70%, 20% 40%, 25% 65%, 30% 35%, 35% 65%,
+            40% 40%, 45% 70%, 50% 40%, 55% 65%, 60% 35%, 65% 65%, 70% 40%, 75% 70%,
+            80% 40%, 85% 65%, 90% 35%, 95% 65%, 100% 50%,
+            100% 100%, 0% 100%);
+    height: 50px;
+    bottom: -1px;
+}
+
+/* Main Content */
+.main-content {
+    background-color: var(--bg-body);
+    padding: 3rem 4rem 8rem 4rem;
+    /* Added extra bottom padding for fixed footer */
+    position: relative;
+}
+
+/* Badges */
+.info-badges {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-circle.brown {
+    background-color: #594239;
+    color: #fff;
+}
+
+.icon-circle.light {
+    background-color: var(--card-pink);
+    color: #594239;
+}
+
+.badge-text h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.badge-text p {
+    font-size: 0.75rem;
+    color: #888;
+    max-width: 150px;
+}
+
+/* Product Cards */
+.product-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;   /* mobile ke liye */
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 250px;
+    max-width: 90%;
+    text-align: center;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pink-card {
+    background-color: var(--card-pink);
+}
+
+.beige-card {
+    background-color: var(--card-beige);
+}
+
+.purple-card {
+    background-color: var(--card-purple);
+}
+
+.card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.card-img-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10%;
+    /* Slight rounded corners matching cookie/cake shapes */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.card-footer .cursive {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
+/* Arrows */
+.slider-arrow {
+    position: absolute;
+    top: 55%;
+    /* approx align with cards */
+    left: 2rem;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.slider-arrow.right {
+    left: auto;
+    right: 2rem;
+    background-color: #0A3D62;
+    /* Dark Blue from screenshot arrow */
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(10, 61, 98, 0.4);
+}
+
+/* Coffee Section */
+.coffee-section {
+    margin-top: 4rem;
+}
+
+.coffee-layout {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.coffee-text {
+    max-width: 400px;
+}
+
+.coffee-img {
+    flex: 1;
+    max-width: 400px;
+    /* Restrict container width */
+    display: flex;
+    justify-content: center;
+}
+
+.coffee-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Removing the inline transform scale from HTML conceptually, or overriding it effectively by sizing the container */
+}
+
+.coffee-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.coffee-text p {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #E8D5D5;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+/* Footer */
+.footer-section {
+    background-color: var(--text-dark);
+    /* Dark Brown Theme */
+    color: #fff;
+    padding: 4rem 4rem 1rem 4rem;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--card-beige);
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons i {
+    font-size: 1.2rem;
+    color: var(--card-beige);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: #fff;
+}
+
+.footer-col h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-col ul li a:hover {
+    color: var(--card-beige);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signature {
+    color: var(--card-pink);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Cleanup old bottom bar styles if needed, or keeping them wont hurt as HTML is removed */
+.bottom-bar {
+    display: none;
+}
