@@ -483,3 +483,139 @@ body {
 .bottom-bar {
     display: none;
 }
+@media (max-width: 768px) {
+
+  /* HEADER PADDING */
+  .header-section {
+    padding: 1.5rem 1.5rem 6rem 1.5rem;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .nav-icons {
+    justify-content: center;
+  }
+
+  /* HERO SECTION */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 260px;
+  }
+}
+/* ===== HAMBURGER ICON ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* ===== MOBILE NAVBAR FIX ===== */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: row;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #8f726d;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* HERO FIX */
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+}
+/* === NAVBAR ALIGN FIX === */
+.navbar {
+  position: relative;
+}
+
+/* HAMBURGER RIGHT SIDE */
+.hamburger {
+  margin-left: auto;
+}
+/* ===== DESKTOP NAV CENTER FIX ===== */
+@media (min-width: 769px) {
+
+  .navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .nav-links {
+    justify-self: center;
+  }
+
+  .hamburger {
+    justify-self: end;
+  }
+}
