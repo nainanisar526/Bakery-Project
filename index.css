@@ -1,0 +1,478 @@
+/* =================== FONT IMPORT =================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+/* =================== VARIABLES =================== */
+:root {
+    --bg-hero: #A68B86;
+    --bg-body: #FFFDF5;
+    --card-pink: #F5D0D0;
+    --card-beige: #EDDBC0;
+    --card-purple: #C8B6C8;
+    --text-hero: #FDF8F5;
+    --text-dark: #4A3B32;
+    --btn-brown: #5C4033;
+}
+
+/* =================== GLOBAL STYLES =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* =================== HEADER & NAVBAR =================== */
+.header-section {
+    background-color: var(--bg-hero);
+    padding: 2rem 4rem 8rem 4rem;
+    position: relative;
+    color: var(--text-hero);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 101;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* =================== HERO =================== */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 80%;
+    margin-bottom: 2.5rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #594239;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 50%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Torn Paper Effect */
+.paper-edge-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--bg-body);
+    clip-path: polygon(0% 50%, 5% 70%, 10% 40%, 15% 70%, 20% 40%, 25% 65%, 30% 35%, 35% 65%,
+        40% 40%, 45% 70%, 50% 40%, 55% 65%, 60% 35%, 65% 65%, 70% 40%, 75% 70%,
+        80% 40%, 85% 65%, 90% 35%, 95% 65%, 100% 50%,
+        100% 100%, 0% 100%);
+}
+
+/* =================== MAIN CONTENT =================== */
+.main-content {
+    background-color: var(--bg-body);
+    padding: 3rem 4rem 8rem 4rem;
+    position: relative;
+}
+
+/* Info Badges */
+.info-badges {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-circle.brown { background-color: #594239; color: #fff; }
+.icon-circle.light { background-color: var(--card-pink); color: #594239; }
+
+.badge-text h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.badge-text p {
+    font-size: 0.75rem;
+    color: #888;
+    max-width: 150px;
+}
+
+/* =================== PRODUCT CARDS =================== */
+.product-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap; /* Desktop wrap */
+    margin-bottom: 5rem;
+}
+
+.card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 250px;
+    max-width: 90%;
+    text-align: center;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pink-card { background-color: var(--card-pink); }
+.beige-card { background-color: var(--card-beige); }
+.purple-card { background-color: var(--card-purpl
+/* =================== FONT IMPORT =================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+/* =================== VARIABLES =================== */
+:root {
+    --bg-hero: #A68B86;
+    --bg-body: #FFFDF5;
+    --card-pink: #F5D0D0;
+    --card-beige: #EDDBC0;
+    --card-purple: #C8B6C8;
+    --text-hero: #FDF8F5;
+    --text-dark: #4A3B32;
+    --btn-brown: #5C4033;
+}
+
+/* =================== GLOBAL STYLES =================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* =================== HEADER & NAVBAR =================== */
+.header-section {
+    background-color: var(--bg-hero);
+    padding: 2rem 4rem 8rem 4rem;
+    position: relative;
+    color: var(--text-hero);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 101;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* =================== HERO =================== */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 80%;
+    margin-bottom: 2.5rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #594239;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 50%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Torn Paper Effect */
+.paper-edge-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--bg-body);
+    clip-path: polygon(0% 50%, 5% 70%, 10% 40%, 15% 70%, 20% 40%, 25% 65%, 30% 35%, 35% 65%,
+        40% 40%, 45% 70%, 50% 40%, 55% 65%, 60% 35%, 65% 65%, 70% 40%, 75% 70%,
+        80% 40%, 85% 65%, 90% 35%, 95% 65%, 100% 50%,
+        100% 100%, 0% 100%);
+}
+
+/* =================== MAIN CONTENT =================== */
+.main-content {
+    background-color: var(--bg-body);
+    padding: 3rem 4rem 8rem 4rem;
+    position: relative;
+}
+
+/* Info Badges */
+.info-badges {
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    justify-content: center;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-circle.brown { background-color: #594239; color: #fff; }
+.icon-circle.light { background-color: var(--card-pink); color: #594239; }
+
+.badge-text h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.badge-text p {
+    font-size: 0.75rem;
+    color: #888;
+    max-width: 150px;
+}
+
+/* =================== PRODUCT CARDS =================== */
+.product-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap; /* Desktop wrap */
+    margin-bottom: 5rem;
+}
+
+.card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 250px;
+    max-width: 90%;
+    text-align: center;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pink-card { background-color: var(--card-pink); }
+.beige-card { background-color: var(--card-beige); }
+.purple-card { background-color: var(--card-purpl

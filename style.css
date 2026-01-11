@@ -1,11 +1,10 @@
-/* Font Import */
+/* =================== FONT IMPORT =================== */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap');
 
+/* =================== VARIABLES =================== */
 :root {
     --bg-hero: #A68B86;
-    /* Muted Mauve/Brown */
     --bg-body: #FFFDF5;
-    /* Cream */
     --card-pink: #F5D0D0;
     --card-beige: #EDDBC0;
     --card-purple: #C8B6C8;
@@ -14,6 +13,7 @@
     --btn-brown: #5C4033;
 }
 
+/* =================== GLOBAL STYLES =================== */
 * {
     margin: 0;
     padding: 0;
@@ -27,11 +27,15 @@ body {
     overflow-x: hidden;
 }
 
-/* Header & Navbar */
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* =================== HEADER & NAVBAR =================== */
 .header-section {
     background-color: var(--bg-hero);
     padding: 2rem 4rem 8rem 4rem;
-    /* Extra bottom padding for overlap/torn effect */
     position: relative;
     color: var(--text-hero);
 }
@@ -41,6 +45,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4rem;
+    position: relative;
 }
 
 .logo {
@@ -53,6 +58,7 @@ body {
     display: flex;
     gap: 3rem;
     list-style: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-links a {
@@ -70,15 +76,25 @@ body {
     border-bottom: 1px solid #fff;
 }
 
-.nav-icons {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 1.1rem;
-    opacity: 0.9;
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
     cursor: pointer;
+    gap: 6px;
+    z-index: 1000;
 }
 
-/* Hero Content */
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* =================== HERO =================== */
 .hero-content {
     display: flex;
     justify-content: space-between;
@@ -130,9 +146,6 @@ body {
     width: 100%;
     max-width: 350px;
     border-radius: 50%;
-    /* Only if it's not transparent, but assuming png is cut */
-    /* If the image has a background, we might need to remove border-radius or adjust */
-    /* For the specific reference look, the cup sits on a saucer. */
     object-fit: contain;
     filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
 }
@@ -140,40 +153,32 @@ body {
 /* Torn Paper Effect */
 .paper-edge-bottom {
     position: absolute;
-    bottom: -5px;
-    /* slight overlap to hide gaps */
+    bottom: -1px;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 50px;
     background-color: var(--bg-body);
-    /* Create a jagged edge using clip-path or repeating radial gradient */
-    /* A fast CSS only way to do torn paper is a mask */
-    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 20' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L0 10 Q 5 0 10 10 T 20 10 T 30 10 T 40 10 T 50 10 T 60 10 T 70 10 T 80 10 T 90 10 T 100 10 L 100 20 Z' fill='black'/%3E%3C/svg%3E");
-    mask-size: 50px 100%;
-    mask-repeat: repeat-x;
-    /* Since masking is tricky without external SVGs sometimes, let's use a simpler clip-path polygon for "torn" look */
     clip-path: polygon(0% 50%, 5% 70%, 10% 40%, 15% 70%, 20% 40%, 25% 65%, 30% 35%, 35% 65%,
             40% 40%, 45% 70%, 50% 40%, 55% 65%, 60% 35%, 65% 65%, 70% 40%, 75% 70%,
             80% 40%, 85% 65%, 90% 35%, 95% 65%, 100% 50%,
             100% 100%, 0% 100%);
-    height: 50px;
-    bottom: -1px;
 }
 
-/* Main Content */
+/* =================== MAIN CONTENT =================== */
 .main-content {
     background-color: var(--bg-body);
     padding: 3rem 4rem 8rem 4rem;
-    /* Added extra bottom padding for fixed footer */
     position: relative;
 }
 
-/* Badges */
+/* Info Badges */
 .info-badges {
     display: flex;
     gap: 4rem;
     margin-bottom: 4rem;
     justify-content: center;
+    flex-wrap: wrap;
+    /* Safety wrap */
 }
 
 .badge {
@@ -214,20 +219,15 @@ body {
     max-width: 150px;
 }
 
-/* Product Cards */
-.product-cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;   /* mobile ke liye */
-}
-
+/* =================== PRODUCT CARDS =================== */
 .product-cards {
     display: flex;
+    gap: 30px;
     justify-content: center;
-    gap: 2rem;
+    align-items: stretch;
+    flex-wrap: wrap;
     margin-bottom: 5rem;
+    padding-bottom: 1rem;
 }
 
 .card {
@@ -241,6 +241,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    /* Fallback */
 }
 
 .pink-card {
@@ -273,8 +275,7 @@ body {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 10%;
-    /* Slight rounded corners matching cookie/cake shapes */
+    border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -295,33 +296,7 @@ body {
     opacity: 0.8;
 }
 
-/* Arrows */
-.slider-arrow {
-    position: absolute;
-    top: 55%;
-    /* approx align with cards */
-    left: 2rem;
-    font-size: 1.5rem;
-    color: #ccc;
-    cursor: pointer;
-}
-
-.slider-arrow.right {
-    left: auto;
-    right: 2rem;
-    background-color: #0A3D62;
-    /* Dark Blue from screenshot arrow */
-    color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(10, 61, 98, 0.4);
-}
-
-/* Coffee Section */
+/* =================== COFFEE / ABOUT SECTION =================== */
 .coffee-section {
     margin-top: 4rem;
 }
@@ -340,7 +315,6 @@ body {
 .coffee-img {
     flex: 1;
     max-width: 400px;
-    /* Restrict container width */
     display: flex;
     justify-content: center;
 }
@@ -350,7 +324,6 @@ body {
     height: auto;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    /* Removing the inline transform scale from HTML conceptually, or overriding it effectively by sizing the container */
 }
 
 .coffee-text h2 {
@@ -381,10 +354,9 @@ body {
     margin-top: 1rem;
 }
 
-/* Footer */
+/* =================== FOOTER =================== */
 .footer-section {
     background-color: var(--text-dark);
-    /* Dark Brown Theme */
     color: #fff;
     padding: 4rem 4rem 1rem 4rem;
     margin-top: 4rem;
@@ -479,143 +451,150 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Cleanup old bottom bar styles if needed, or keeping them wont hurt as HTML is removed */
-.bottom-bar {
-    display: none;
-}
+/* =================== MEDIA QUERIES (RESPONSIVENESS) =================== */
+
 @media (max-width: 768px) {
 
-  /* HEADER PADDING */
-  .header-section {
-    padding: 1.5rem 1.5rem 6rem 1.5rem;
-  }
+    /* --- HEADER & NAV --- */
+    .header-section {
+        padding: 1.5rem 1.5rem 6rem 1.5rem;
+    }
 
-  /* NAVBAR */
-  .navbar {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+    .navbar {
+        position: static;
+        /* Let the absolute menu position relative to body or header */
+    }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
+    .hamburger {
+        display: flex;
+        position: absolute;
+        top: 2rem;
+        right: 1.5rem;
+    }
 
-  .nav-icons {
-    justify-content: center;
-  }
+    .logo {
+        position: absolute;
+        top: 2rem;
+        left: 1.5rem;
+    }
 
-  /* HERO SECTION */
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 0;
-    gap: 2.5rem;
-  }
+    .nav-links {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-hero);
+        padding: 6rem 0 3rem 0;
+        /* Space for logo/hamburger */
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-  .hero-text {
-    max-width: 100%;
-  }
+    .nav-links.active {
+        display: flex;
+        /* Show when active */
+    }
 
-  .hero-text h1 {
-    font-size: 2.8rem;
-  }
+    /* --- HERO --- */
+    .hero-content {
+        flex-direction: column;
+        margin-top: 4rem;
+        /* Adjustment for fixed/stacked nav elements */
+        text-align: center;
+        gap: 3rem;
+        padding: 0;
+    }
 
-  .hero-text p {
-    max-width: 100%;
-    font-size: 0.9rem;
-  }
+    .hero-text {
+        max-width: 100%;
+    }
 
-  .hero-image {
-    width: 100%;
-  }
+    .hero-text h1 {
+        font-size: 3rem;
+    }
 
-  .hero-image img {
-    max-width: 260px;
-  }
-}
-/* ===== HAMBURGER ICON ===== */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
+    .hero-text p {
+        max-width: 100%;
+    }
 
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: #fff;
-  margin: 4px 0;
-  border-radius: 2px;
-}
+    .hero-image {
+        width: 100%;
+    }
 
-/* ===== MOBILE NAVBAR FIX ===== */
-@media (max-width: 768px) {
+    .hero-image img {
+        max-width: 250px;
+    }
 
-  .navbar {
-    flex-direction: row;
-  }
+    /* --- MAIN CONTENT --- */
+    .main-content {
+        padding: 3rem 1.5rem;
+    }
 
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #8f726d;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem 0;
-    display: none;
-  }
+    .info-badges {
+        gap: 2rem;
+    }
 
-  .nav-links.active {
-    display: flex;
-  }
+    /* --- PRODUCTS (HORIZONTAL SCROLL) --- */
+    .product-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        /* Prevent wrapping */
+        overflow-x: auto;
+        /* Enable scroll */
+        justify-content: flex-start;
+        /* Align start */
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+        scroll-snap-type: x mandatory;
+        /* Snap effect */
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -1.5rem 4rem -1.5rem;
+        /* Negative margin to pull to edges */
+        padding-left: 1.5rem;
+        /* Restore padding */
+        padding-right: 1.5rem;
+    }
 
-  .hamburger {
-    display: flex;
-  }
+    .product-cards::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar for clean look */
+    }
 
-  /* HERO FIX */
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2.5rem;
-  }
+    .card {
+        min-width: 260px;
+        /* Force width */
+        flex: 0 0 auto;
+        /* Don't shrink */
+        scroll-snap-align: center;
+        /* Center snap */
+    }
 
-  .hero-text {
-    max-width: 100%;
-  }
+    /* --- COFFEE / ABOUT --- */
+    .coffee-layout {
+        flex-direction: column;
+    }
 
-  .hero-image {
-    width: 100%;
-  }
-}
-/* === NAVBAR ALIGN FIX === */
-.navbar {
-  position: relative;
-}
+    .coffee-text,
+    .coffee-img {
+        max-width: 100%;
+    }
 
-/* HAMBURGER RIGHT SIDE */
-.hamburger {
-  margin-left: auto;
-}
-/* ===== DESKTOP NAV CENTER FIX ===== */
-@media (min-width: 769px) {
+    .coffee-text {
+        text-align: center;
+    }
 
-  .navbar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
+    /* --- FOOTER --- */
+    .footer-section {
+        padding: 3rem 1.5rem;
+    }
 
-  .nav-links {
-    justify-self: center;
-  }
-
-  .hamburger {
-    justify-self: end;
-  }
+    .footer-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
 }
